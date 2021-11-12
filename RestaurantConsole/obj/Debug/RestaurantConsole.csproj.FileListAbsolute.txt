@@ -1,0 +1,12 @@
+C:\Users\Lenovo\source\repos\Restaurant\RestaurantConsole\bin\Debug\RestaurantConsole.exe.config
+C:\Users\Lenovo\source\repos\Restaurant\RestaurantConsole\bin\Debug\RestaurantConsole.exe
+C:\Users\Lenovo\source\repos\Restaurant\RestaurantConsole\bin\Debug\RestaurantConsole.pdb
+C:\Users\Lenovo\source\repos\Restaurant\RestaurantConsole\bin\Debug\Restaurant.BLL.dll
+C:\Users\Lenovo\source\repos\Restaurant\RestaurantConsole\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Lenovo\source\repos\Restaurant\RestaurantConsole\bin\Debug\Restaurant.BLL.pdb
+C:\Users\Lenovo\source\repos\Restaurant\RestaurantConsole\bin\Debug\System.Data.SqlClient.xml
+C:\Users\Lenovo\source\repos\Restaurant\RestaurantConsole\obj\Debug\RestaurantConsole.csproj.AssemblyReference.cache
+C:\Users\Lenovo\source\repos\Restaurant\RestaurantConsole\obj\Debug\RestaurantConsole.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\source\repos\Restaurant\RestaurantConsole\obj\Debug\RestaurantConsole.csproj.CopyComplete
+C:\Users\Lenovo\source\repos\Restaurant\RestaurantConsole\obj\Debug\RestaurantConsole.exe
+C:\Users\Lenovo\source\repos\Restaurant\RestaurantConsole\obj\Debug\RestaurantConsole.pdb

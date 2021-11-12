@@ -1,0 +1,39 @@
+﻿@model IEnumerable<RestaurantMVCWithEF.Models.APINewCuisine>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CuisineID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RestaurantID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CuisineName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CuisineID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RestaurantID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CuisineName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CuisineID }) |
+            @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+            @Html.ActionLink("Delete", "Delete", new { id = item.CuisineID })
+        </td>
+    </tr>
+}
+
+</table>

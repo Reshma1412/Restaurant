@@ -1,0 +1,63 @@
+﻿@model IEnumerable<RestaurantMVCWithEF.Models.OrderInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Order Details</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiningTable.DiningLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RestaurantMenuItem.ItemName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RestaurantDetail.RestuarantName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiningTable.DiningLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RestaurantMenuItem.ItemName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RestaurantDetail.RestuarantName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OrderID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OrderID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OrderID })
+        </td>
+    </tr>
+}
+
+</table>

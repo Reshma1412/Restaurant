@@ -1,0 +1,39 @@
+﻿@model IEnumerable<RestaurantMVCWithEF.Models.DiningTableTrack>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Dining Table Information</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TableStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiningTable.DiningLocation)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TableStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiningTable.DiningLocation)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DiningTableTrackID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DiningTableTrackID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DiningTableTrackID })
+        </td>
+    </tr>
+}
+
+</table>

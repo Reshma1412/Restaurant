@@ -1,0 +1,161 @@
+﻿
+@model IEnumerable<RestaurantMVCWithEF.Models.Vw_CuisineDetails>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Cuisine Details</h2>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cuisine Details</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .button4 {
+            border-radius: 9px;
+        }
+
+        input[type=text], select {
+            width: 60%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    @*<strong style="background-color: Yellow;color: Blue; text-align: center; font-style: oblique">Find </strong>*@
+    <fieldset>
+        @*<legend style="font-family:Arial Black;color:blue">SEARCH BY Restaurant ID</legend>*@
+        
+        @using (Html.BeginForm("Index", "Vw_CuisineDetails", FormMethod.Post))
+        {
+            <br />
+            <br />
+            <table align="center" border="1" cellpadding="4" cellspacing="4">
+                <tr>
+                    
+                    <th>CuisineName</th>
+                    <th>ItemName</th>
+                    <th>ItemPrice</th>
+
+                </tr>
+                @foreach (RestaurantMVCWithEF.Models.Vw_CuisineDetails cuisineDetails in Model)
+                {
+                    <tr>
+                        <td>@cuisineDetails.CuisineName  </td>
+                        <td>@cuisineDetails.ItemName</td>
+                        <td>@cuisineDetails.ItemPrice</td>
+
+                    </tr>
+
+                }
+            </table>
+        }
+    </fieldset>
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@model IEnumerable<RestaurantMVCWithEF.Models.Vw_CuisineDetails>
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Cuisine Details</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CuisineName )
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemName)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CuisineName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemName)
+                </td>
+            </tr>
+        }
+
+    </table>*@

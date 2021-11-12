@@ -1,0 +1,183 @@
+﻿@model IEnumerable<RestaurantMVCWithEF.Models.USPDayWiseAmount_Result>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Day wise Order Amount</h2>
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Day Wise Order Amount</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .button4 {
+            border-radius: 9px;
+        }
+
+        input[type=text], select {
+            width: 60%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    @*<strong style="background-color: Yellow;color: Blue; text-align: center; font-style: oblique">Find </strong>*@
+    <fieldset>
+        @*<legend style="font-family:Arial Black;color:blue">SEARCH BY Restaurant ID</legend>*@
+        Search by RestaurantID
+        @using (Html.BeginForm("Index", "DayWise", FormMethod.Post))
+        {
+            <div align="center">
+                @Html.TextBox("RestaurantID", "", new { placeholder = "Enter Your Restaurant ID Here...." })
+                <input type="submit" class="button button4" value="Search" />
+            </div>
+            <br />
+            <br />
+            <table align="center" border="1" cellpadding="4" cellspacing="4">
+                <tr>
+                    @*<th style="background-color: Yellow;color: blue">RestaurantName</th>
+                        <th style="background-color: Yellow;color: blue">DiningTableLocation</th>
+                        <th style="background-color: Yellow;color: blue">TableStatus</th>*@
+
+                    <th>RestuarantName</th>
+                    <th>Year</th>
+                    <th>Month</th>
+                    <th>Day</th>
+                    <th>DayName</th>
+                    <th>TotalAmount</th>
+                  
+                </tr>
+                @foreach (RestaurantMVCWithEF.Models.USPDayWiseAmount_Result daywise in Model)
+                {
+                    <tr>
+                        <td>@daywise.RestuarantName  </td>
+                        <td>@daywise.Year</td>
+                        <td>@daywise.Month</td>
+                        <td>@daywise.Day </td>
+                        <td>@daywise.DayName </td>
+                        <td>@daywise.TotalAmount</td>
+                    </tr>
+
+                }
+            </table>
+        }
+    </fieldset>
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@model IEnumerable<RestaurantMVCWithEF.Models.USPDayWiseAmount_Result>
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Index</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RestuarantName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Month)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DayName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalAmount)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RestuarantName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Month)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Day)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DayName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalAmount)
+        </td>
+    </tr>
+        }
+
+    </table>*@
