@@ -69,28 +69,57 @@ namespace WebAPI.Controllers
         //public IHttpActionResult DeleteCuisineData([FromBody] CuisineBLL delcb)
         //public IHttpActionResult DeleteCuisineData(CuisineBLL delcb)
         //public IHttpActionResult DeleteCuisineData([FromBody] int id)
-        public IHttpActionResult DeleteCuisineData([FromBody] CuisineBLL delcb)
+
+
+
+        public IHttpActionResult DeleteCuisineData(int id)
         {
             try
             {
                 if (!ModelState.IsValid)
                     return BadRequest("Invalid data.");
 
-
-                //var delcb = new CuisineBLL();
-                ////delcb.CuisineID = id;
-                //delcb = cb.GetAllCuisines().Find(Cui => Cui.CuisineID == id);
+                var delcb = new CuisineBLL();
+                delcb.CuisineID = id;
+                delcb = cb.GetAllCuisines().FirstOrDefault(Cui => Cui.CuisineID == id);
                 if (cb.DeleteCuisine(delcb))
                     return Ok("Success");
                 else
-                   return Ok("Something went wrong, try later");
-               
+                    return Ok("Something went wrong, try later");
+
             }
             catch
             {
                 return Ok("Something went wrong, try later");
             }
         }
+
+
+        //public IHttpActionResult DeleteCuisineData([FromBody] CuisineBLL delcb)
+        //{
+        //    try
+        //    {
+        //        if (!ModelState.IsValid)
+        //            return BadRequest("Invalid data.");
+
+
+        //        //var delcb = new CuisineBLL();
+        //        ////delcb.CuisineID = id;
+        //        //delcb = cb.GetAllCuisines().Find(Cui => Cui.CuisineID == id);
+        //        if (cb.DeleteCuisine(delcb))
+        //            return Ok("Success");
+        //        else
+        //           return Ok("Something went wrong, try later");
+
+        //    }
+        //    catch
+        //    {
+        //        return Ok("Something went wrong, try later");
+        //    }
+
+
+
+        //}
 
     }
 }

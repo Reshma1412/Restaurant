@@ -175,7 +175,7 @@ namespace RestaurantMVCWithEF.Controllers
                 //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 using (var Objclient = new HttpClient())
                 {
-                    Objclient.BaseAddress = new Uri("http://localhost:44337/api/");
+                    Objclient.BaseAddress = new Uri("https://localhost:44337/api/");
 
                     //HTTP POST
                     //var putTask = client.PutAsync("APICuisine/" + id.ToString(), new StringContent(new JavaScriptSerializer().Serialize(putcb), Encoding.UTF8, "application/json"));
@@ -209,16 +209,18 @@ namespace RestaurantMVCWithEF.Controllers
 
         // GET: APINewCuisine/Delete/5
         public ActionResult Delete(int id)
+        //public ActionResult Delete(APINewCuisine cuisine)
         {
             try
             {
                 //return View();
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri("http://localhost:44337/api/");
+                    client.BaseAddress = new Uri("https://localhost:44337/api/");
 
                     //HTTP DELETE
                     var deleteTask = client.DeleteAsync("APICuisine/" + id.ToString());
+                    //var deleteTask = client.DeleteAsync("APICuisine", cuisine);
 
                     deleteTask.Wait();
 
