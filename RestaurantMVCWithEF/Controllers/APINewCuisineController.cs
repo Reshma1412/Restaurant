@@ -3,6 +3,7 @@ using Restaurant.BLL.Models;
 using RestaurantMVCWithEF.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -24,8 +25,10 @@ namespace RestaurantMVCWithEF.Controllers
 
             using (var client = new HttpClient())
             {
-                //client.BaseAddress = new Uri("http://localhost:64189/api/");
-                client.BaseAddress = new Uri("https://localhost:44337/api/");
+
+                //client.BaseAddress = new Uri("https://localhost:44337/api/");
+                var path = ConfigurationManager.AppSettings["ApiBaseUri"];
+                client.BaseAddress = new Uri(path);
                 //HTTP GET
                 var responseTask = client.GetAsync("APICuisine");
                 responseTask.Wait();
@@ -61,8 +64,10 @@ namespace RestaurantMVCWithEF.Controllers
 
             using (var client = new HttpClient())
             {
-                //client.BaseAddress = new Uri("http://localhost:64189/api/");
-                client.BaseAddress = new Uri("https://localhost:44337/api/");
+
+                //client.BaseAddress = new Uri("https://localhost:44337/api/");
+                var path = ConfigurationManager.AppSettings["ApiBaseUri"];
+                client.BaseAddress = new Uri(path);
                 //HTTP GET
                 var responseTask = client.GetAsync("APICuisine" + CID.ToString());
                 responseTask.Wait();
@@ -106,7 +111,9 @@ namespace RestaurantMVCWithEF.Controllers
                 // TODO: Add insert logic here
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri("https://localhost:44337/api/");
+                    //client.BaseAddress = new Uri("https://localhost:44337/api/");
+                    var path = ConfigurationManager.AppSettings["ApiBaseUri"];
+                    client.BaseAddress = new Uri(path);
 
                     //HTTP POST
                     var postTask = client.PostAsJsonAsync<APINewCuisine>("APICuisine", cuisine);
@@ -140,7 +147,9 @@ namespace RestaurantMVCWithEF.Controllers
 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44337/api/");
+                //client.BaseAddress = new Uri("https://localhost:44337/api/");
+                var path = ConfigurationManager.AppSettings["ApiBaseUri"];
+                client.BaseAddress = new Uri(path);
                 //HTTP GET
                 var responseTask = client.GetAsync("APICuisine?CId=" + id.ToString());
                 responseTask.Wait();
@@ -175,8 +184,9 @@ namespace RestaurantMVCWithEF.Controllers
                 //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 using (var Objclient = new HttpClient())
                 {
-                    Objclient.BaseAddress = new Uri("https://localhost:44337/api/");
-
+                    //Objclient.BaseAddress = new Uri("https://localhost:44337/api/");
+                    var path = ConfigurationManager.AppSettings["ApiBaseUri"];
+                    Objclient.BaseAddress = new Uri(path);
                     //HTTP POST
                     //var putTask = client.PutAsync("APICuisine/" + id.ToString(), new StringContent(new JavaScriptSerializer().Serialize(putcb), Encoding.UTF8, "application/json"));
                     //var putTask = client.PutAsync("APICuisine/", new StringContent(new JavaScriptSerializer().Serialize(cuisine), Encoding.UTF8, "application/json"));
@@ -216,7 +226,9 @@ namespace RestaurantMVCWithEF.Controllers
                 //return View();
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri("https://localhost:44337/api/");
+                    //client.BaseAddress = new Uri("https://localhost:44337/api/");
+                    var path = ConfigurationManager.AppSettings["ApiBaseUri"];
+                    client.BaseAddress = new Uri(path);
 
                     //HTTP DELETE
                     var deleteTask = client.DeleteAsync("APICuisine/" + id.ToString());
